@@ -297,8 +297,8 @@ def drone_run(drone_interface, scenario, scenario_name):
 
     for vpid, vp in ordered_vps:
         target = (vp['x'], vp['y'], vp['z'])
-        yaw_deg = math.degrees(vp['w'])
-        print(f"\n[NAV] >>> VP {vpid}: ({target[0]:.2f}, {target[1]:.2f}, {target[2]:.2f}) yaw={yaw_deg:.1f}deg")
+        yaw_rad = vp['w']  # API actually takes radians despite docstring
+        print(f"\n[NAV] >>> VP {vpid}: ({target[0]:.2f}, {target[1]:.2f}, {target[2]:.2f}) yaw={yaw_rad:.1f}deg")
 
         visit_order.append(int(vpid) if isinstance(vpid, (int, str)) else vpid)
         seg_start = time.time()
@@ -306,16 +306,14 @@ def drone_run(drone_interface, scenario, scenario_name):
         waypoints, avoided = planner.plan_path(current_pos, target)
 
         for i, wp in enumerate(waypoints):
-            is_last = (i == len(waypoints) - 1)
-            if is_last:
-                print(f"[NAV]   -> final: [{wp[0]:.2f}, {wp[1]:.2f}, {wp[2]:.2f}]")
-                drone_interface.go_to.go_to_point_with_yaw(
-                    list(wp), angle=yaw_deg, speed=SPEED)
-            else:
-                print(f"[NAV]   -> wp {i+1}: [{wp[0]:.2f}, {wp[1]:.2f}, {wp[2]:.2f}]")
-                drone_interface.go_to.go_to_point(list(wp), speed=SPEED)
+            print(f"[NAV]   -> wp {i+1}: [{wp[0]:.2f}, {wp[1]:.2f}, {wp[2]:.2f}]")
+            drone_interface.go_to.go_to_point(list(wp), speed=SPEED)
 
-        sleep(SLEEP_TIME)
+        # Arrived at viewpoint, now rotate to face marker
+        target_list = list(target)
+        print(f"[NAV]   -> rotating to yaw={yaw_rad:.1f}deg")
+        drone_interface.go_to.go_to_point_with_yaw(target_list, angle=yaw_rad, speed=SPEED)
+        sleep(1.0)
         if cam:
             cam.save(f"{scenario_name}_vp{vpid}")
 
