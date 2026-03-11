@@ -1,0 +1,316 @@
+{
+  "scenario": "scenario3",
+  "method": "optimised",
+  "algorithm": {
+    "tsp_solver": "simulated_annealing",
+    "path_planner": "A*_3D",
+    "obstacle_padding_m": 1.0,
+    "speed_ms": 2.0
+  },
+  "total_time_s": 213.5,
+  "total_distance_m": 81.18,
+  "tsp_optimal_distance_m": 81.18,
+  "avg_speed_ms": 0.38,
+  "waypoints_visited": 20,
+  "total_waypoints": 20,
+  "success_rate_pct": 100.0,
+  "visit_order": [
+    10,
+    13,
+    8,
+    5,
+    12,
+    11,
+    17,
+    4,
+    18,
+    6,
+    1,
+    15,
+    7,
+    16,
+    19,
+    20,
+    3,
+    14,
+    2,
+    9
+  ],
+  "num_obstacles": 1,
+  "collision_avoidances": 1,
+  "segment_times_s": [
+    10.22,
+    24.7,
+    10.69,
+    7.39,
+    12.96,
+    9.5,
+    12.87,
+    9.2,
+    9.74,
+    10.84,
+    10.68,
+    11.32,
+    10.2,
+    12.14,
+    7.98,
+    6.7,
+    8.97,
+    8.35,
+    8.79,
+    9.76
+  ],
+  "segment_details": [
+    {
+      "viewpoint_id": "10",
+      "position": {
+        "x": 1.89,
+        "y": -3.76,
+        "z": 1.1
+      },
+      "intermediate_waypoints": [],
+      "distance_from_prev_m": 4.21,
+      "time_s": 10.22,
+      "obstacle_avoided": false
+    },
+    {
+      "viewpoint_id": "13",
+      "position": {
+        "x": 0.3,
+        "y": -9.58,
+        "z": 3.04
+      },
+      "intermediate_waypoints": [
+        {
+          "x": 1.89,
+          "y": -3.76,
+          "z": 5.04
+        },
+        {
+          "x": 0.3,
+          "y": -9.58,
+          "z": 5.04
+        }
+      ],
+      "distance_from_prev_m": 6.34,
+      "time_s": 24.7,
+      "obstacle_avoided": true
+    },
+    {
+      "viewpoint_id": "8",
+      "position": {
+        "x": 3.11,
+        "y": -8.46,
+        "z": 4.41
+      },
+      "intermediate_waypoints": [],
+      "distance_from_prev_m": 3.32,
+      "time_s": 10.69,
+      "obstacle_avoided": false
+    },
+    {
+      "viewpoint_id": "5",
+      "position": {
+        "x": 4.34,
+        "y": -8.56,
+        "z": 4.04
+      },
+      "intermediate_waypoints": [],
+      "distance_from_prev_m": 1.29,
+      "time_s": 7.39,
+      "obstacle_avoided": false
+    },
+    {
+      "viewpoint_id": "12",
+      "position": {
+        "x": 9.14,
+        "y": -9.7,
+        "z": 1.31
+      },
+      "intermediate_waypoints": [],
+      "distance_from_prev_m": 5.64,
+      "time_s": 12.96,
+      "obstacle_avoided": false
+    },
+    {
+      "viewpoint_id": "11",
+      "position": {
+        "x": 9.17,
+        "y": -6.23,
+        "z": 2.45
+      },
+      "intermediate_waypoints": [],
+      "distance_from_prev_m": 3.66,
+      "time_s": 9.5,
+      "obstacle_avoided": false
+    },
+    {
+      "viewpoint_id": "17",
+      "position": {
+        "x": 6.38,
+        "y": 0.89,
+        "z": 4.06
+      },
+      "intermediate_waypoints": [],
+      "distance_from_prev_m": 7.81,
+      "time_s": 12.87,
+      "obstacle_avoided": false
+    },
+    {
+      "viewpoint_id": "4",
+      "position": {
+        "x": 3.7,
+        "y": -0.73,
+        "z": 2.39
+      },
+      "intermediate_waypoints": [],
+      "distance_from_prev_m": 3.55,
+      "time_s": 9.2,
+      "obstacle_avoided": false
+    },
+    {
+      "viewpoint_id": "18",
+      "position": {
+        "x": 2.54,
+        "y": 2.6,
+        "z": 3.1
+      },
+      "intermediate_waypoints": [],
+      "distance_from_prev_m": 3.59,
+      "time_s": 9.74,
+      "obstacle_avoided": false
+    },
+    {
+      "viewpoint_id": "6",
+      "position": {
+        "x": 5.18,
+        "y": 7.32,
+        "z": 1.4
+      },
+      "intermediate_waypoints": [],
+      "distance_from_prev_m": 5.68,
+      "time_s": 10.84,
+      "obstacle_avoided": false
+    },
+    {
+      "viewpoint_id": "1",
+      "position": {
+        "x": 1.28,
+        "y": 4.19,
+        "z": 3.7
+      },
+      "intermediate_waypoints": [],
+      "distance_from_prev_m": 5.51,
+      "time_s": 10.68,
+      "obstacle_avoided": false
+    },
+    {
+      "viewpoint_id": "15",
+      "position": {
+        "x": -0.78,
+        "y": 2.71,
+        "z": 4.66
+      },
+      "intermediate_waypoints": [],
+      "distance_from_prev_m": 2.71,
+      "time_s": 11.32,
+      "obstacle_avoided": false
+    },
+    {
+      "viewpoint_id": "7",
+      "position": {
+        "x": -2.0,
+        "y": -0.37,
+        "z": 2.13
+      },
+      "intermediate_waypoints": [],
+      "distance_from_prev_m": 4.17,
+      "time_s": 10.2,
+      "obstacle_avoided": false
+    },
+    {
+      "viewpoint_id": "16",
+      "position": {
+        "x": -6.27,
+        "y": 1.9,
+        "z": 4.51
+      },
+      "intermediate_waypoints": [],
+      "distance_from_prev_m": 5.4,
+      "time_s": 12.14,
+      "obstacle_avoided": false
+    },
+    {
+      "viewpoint_id": "19",
+      "position": {
+        "x": -6.08,
+        "y": -0.86,
+        "z": 3.01
+      },
+      "intermediate_waypoints": [],
+      "distance_from_prev_m": 3.15,
+      "time_s": 7.98,
+      "obstacle_avoided": false
+    },
+    {
+      "viewpoint_id": "20",
+      "position": {
+        "x": -6.83,
+        "y": -0.16,
+        "z": 2.43
+      },
+      "intermediate_waypoints": [],
+      "distance_from_prev_m": 1.18,
+      "time_s": 6.7,
+      "obstacle_avoided": false
+    },
+    {
+      "viewpoint_id": "3",
+      "position": {
+        "x": -8.77,
+        "y": -2.13,
+        "z": 1.26
+      },
+      "intermediate_waypoints": [],
+      "distance_from_prev_m": 3.0,
+      "time_s": 8.97,
+      "obstacle_avoided": false
+    },
+    {
+      "viewpoint_id": "14",
+      "position": {
+        "x": -9.37,
+        "y": -0.09,
+        "z": 3.83
+      },
+      "intermediate_waypoints": [],
+      "distance_from_prev_m": 3.34,
+      "time_s": 8.35,
+      "obstacle_avoided": false
+    },
+    {
+      "viewpoint_id": "2",
+      "position": {
+        "x": -9.81,
+        "y": -3.44,
+        "z": 4.9
+      },
+      "intermediate_waypoints": [],
+      "distance_from_prev_m": 3.54,
+      "time_s": 8.79,
+      "obstacle_avoided": false
+    },
+    {
+      "viewpoint_id": "9",
+      "position": {
+        "x": -6.27,
+        "y": -5.54,
+        "z": 4.84
+      },
+      "intermediate_waypoints": [],
+      "distance_from_prev_m": 4.12,
+      "time_s": 9.76,
+      "obstacle_avoided": false
+    }
+  ]
+}
