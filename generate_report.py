@@ -198,9 +198,11 @@ li {
 
 <h3>2.3 Integration with Gazebo Simulation</h3>
 
-<p>The solution integrates with AeroStack2's ROS2 interface through the <code>DroneInterface</code> API. The drone executes blocking <code>go_to_point_with_yaw</code> commands for final viewpoint waypoints (ensuring correct camera orientation) and <code>go_to_point</code> for intermediate avoidance waypoints. The yaw angle, specified in radians in the scenario file, is converted to degrees for the flight controller.</p>
+<p>The solution integrates with AeroStack2's ROS2 interface through the <code>DroneInterface</code> API. For each segment, the drone flies to intermediate avoidance waypoints using <code>go_to_point</code> (maintaining current yaw), then upon reaching the final viewpoint, executes <code>go_to_point_with_yaw</code> to rotate in-place to the specified camera orientation before photographing the marker.</p>
 
-<p>At each viewpoint, the drone pauses for 2 seconds to allow camera stabilisation, then captures a screenshot via ROS2 camera topic subscription. These screenshots serve as proof of task completion, showing the ArUco markers at each inspection point. All metrics (time, distance, visit order, avoidance details, intermediate waypoints) are logged to JSON files for post-flight analysis and visualisation.</p>
+<p>A critical implementation detail concerns the yaw angle convention. The scenario files specify yaw in radians, and the AeroStack2 Python API documentation for <code>go_to_point_with_yaw</code> states the angle parameter is in degrees. However, inspection of the underlying ROS2 message definition (<code>YawMode.msg</code>) reveals the field is defined as <code>float32 angle # Fixed yaw (rad)</code>, and the Python layer performs no conversion. Therefore, <strong>radians must be passed directly</strong> despite the misleading docstring. This discovery resolved initial marker alignment issues where the camera was not accurately facing the ArUco targets.</p>
+
+<p>At each viewpoint, the drone pauses for 1 second after rotating to allow camera stabilisation, then captures a screenshot via ROS2 camera topic subscription. These screenshots serve as proof of task completion, showing the ArUco markers at each inspection point. All metrics (time, distance, visit order, avoidance details, intermediate waypoints) are logged to JSON files for post-flight analysis and visualisation.</p>
 
 <h2>3. Results and Discussion</h2>
 
